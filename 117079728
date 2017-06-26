@@ -21,6 +21,47 @@ def menuprincipal(escolha):
 
     if escolha == 1:
         print("1 - Modo de geracao de chaves escolhido")
+
+        print("""
+        Escolha 1: para criar um par de chaves de assinatura
+        Escolha 2: para criar um par de chaves de criptografia
+        Escolha 9: para voltar ao menu principal
+        Escolha 0: para sair do programa
+        """)
+
+        print("Digite a opcao desejada:") #escolha do menu "geracao de chave escolhido"
+        escolha=int(input()) #escolha digitada pelo usuario
+
+        if escolha == 1:
+            print("Par de chaves de assinatura escolhido")
+        elif escolha == 2:
+            print("Par de chaves de criptografia escolhido")
+        elif escolha == 9:
+            print("Voltando para o menu principal")
+            print("""
+            ----Menu principal----
+
+            1 - Modo de geracao de chaves
+            2 - Modo de encriptacao
+            3 - Modo de decriptcao
+            4 - Modo de assinatura digital (pura)
+            5 - Modo de verificacao de assinatura (pura)
+            6 - Modo de assinatura digital e encriptacao (combinados)
+            7 - Modo de decritacao e verificacao de assinatura(combinados)
+            0 - Sair do programa
+            ----------------------
+            """)
+
+            print("Digite a opcao desejada:") #escolha do menu principal
+            escolha=int(input()) #escolha digitada pelo usuario
+            menuprincipal(escolha) #funcao menuprincipal #Voltando ao menu principal
+
+
+        elif escolha == 0:
+            return 1
+
+
+
     elif escolha == 2:
         print("2 - Modo de encriptacao escolhido")
     elif escolha == 3:
@@ -38,9 +79,10 @@ def menuprincipal(escolha):
     else:
         print("Escolha invalida, tente novamente")
 
+
 #fim das funcoes
 
-
+# programa principal
 print("""
 ----Menu principal----
 
@@ -55,6 +97,8 @@ print("""
 ----------------------
 """)
 
-print("Digite a opcao desejada:")
-escolha=int(input())
-menuprincipal(escolha)
+print("Digite a opcao desejada:") #escolha do menu principal
+escolha=int(input()) #escolha digitada pelo usuario
+menuprincipal(escolha) #funcao menuprincipal
+
+#fim do programa principal

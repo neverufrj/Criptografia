@@ -22,30 +22,35 @@ import random
 # Manipulacao de Arquivos
 def salvarchaves(num,e,d):
 	escolha = ''
-	while(escolha != "exibir" and escolha != "salvar"):
-		print("Digite 'salvar' para salvar as chaves em arquivo ou 'exibir' para exibir as chaves no terminal")
+	while(escolha != "e" and escolha != "s"):
+		print("Digite 's' para salvar as chaves em arquivo ou 'e' para exibir as chaves no terminal")
 		escolha = raw_input()
-		if(escolha == "salvar"):
-			print("Voce escolheu salvar as chaves geradas em arquivos.")
+
+		if(escolha == "s"):
+			print("Voce escolheu salvar as chaves geradas em arquivos. Os arquivos possuem os seguintes nomes : ChavePublica e ChavePrivada")
 			print("")
+
 			chavespublicasF = open("ChavePublica", 'w')
 			chavespublicasF.write(num + "\n")
 			chavespublicasF.write(e + "\n")
 			chavesprivadasF = open("ChavePrivada", 'w')
 			chavesprivadasF.write(num + "\n")
 			chavesprivadasF.write(d + "\n")
-			print("Arquivo salvo com sucesso!")
-		elif(escolha == "exibir"):
+
+			print("Os arquivos ChavePublica e ChavePrivada foram salvos com sucesso!")
+
+		elif(escolha == "e"):
 			print("Voce escolheu 'exibir' as chaves no terminal.")
 			print("")
-			print("Chave Publica:")
+			print("Chave publica:")
 			print(num,e)
-			print("Chave Privada:")
+			print("Chave privada:")
 			print(num,d)
-		else:
-			print("Escolha invalida, tente novamente")
-			print("")
 
+		else:
+			print("Escolha invalida, tente novamente!")
+			print("")
+#---------------------------------------Fim arquivos--------------------------------------------
 #funcoes
 
 def decparahex(dec): #funcao que converte decimal para inteiro
@@ -176,7 +181,7 @@ def RSAgerador(): # Funcao que calcula as chaves publicas e privadas do RSAgerad
     while(len(d)<64):
         d="0"+d
 
-	print("Chaves geradas!")
+	print("Chaves geradas com sucesso!")
 	print("")
     salvarchaves(num,e,d)
 
@@ -186,88 +191,65 @@ def RSAgerador(): # Funcao que calcula as chaves publicas e privadas do RSAgerad
 def menuprincipal(escolha):
 
     if escolha == 1:
-        print("1 - Modo de geracao de chaves escolhido")
+        print("Opcao 1 - Modo de geracao de chaves escolhido.")
         print("""
-        Escolha 1: para criar um par de chaves de assinatura
-        Escolha 2: para criar um par de chaves de criptografia
-        Escolha 9: para voltar ao menu principal
-        Escolha 0: para sair do programa
+        Opcao 1: para criar um par de chaves de assinatura
+        Opcao 2: para criar um par de chaves de criptografia
         ----------------------
         """)
 
         print("Digite a opcao desejada:") #escolha do menu "geracao de chave escolhido"
         escolha=int(input()) #escolha digitada pelo usuario
 
+
         if escolha == 1:
-            print("Par de chaves de assinatura escolhido!")
+            print("Opcao 1 - Par de chaves de assinatura escolhido.")
 
         elif escolha == 2:
-            print("Par de chaves de criptografia escolhido!")
+            print("Opcao 2 - Par de chaves de criptografia escolhido.")
             print("""
-            Digite 1 - Para o metodo de Criptografia El Gamal
-            Digite 2 - Para o metodo de Criptografia RSAgerador
+            Opcao 1 - Para o metodo de Criptografia El Gamal
+            Opcao 2 - Para o metodo de Criptografia RSA
             ----------------------
             """)
 
+            print("Digite a opcao desejada:")
             escolha=int(input()) #escolha digitada pelo usuario
 
             if escolha == 1:
-                print("1 - Metodo El Gamal escolhido!")
+                print("Opcao 1 - Metodo El Gamal escolhido.")
                 print(" ")
 
             elif escolha == 2:
-                print("2 - Metodo RSAgerador escolhido!")
+                print("Opcao 2 - Metodo RSA escolhido.")
                 print(" ")
 
                 RSAgerador()
+
             else:
-    			print("Escolha invalida, tente novamente")
+    			print("Escolha invalida, tente novamente!")
     			return 1
-
-
-
-        elif escolha == 9:
-            print("Voltando para o menu principal")
-            print("""
-            ----Menu principal----
-
-            1 - Modo de geracao de chaves
-            2 - Modo de encriptacao
-            3 - Modo de decriptcao
-            4 - Modo de assinatura digital (pura)
-            5 - Modo de verificacao de assinatura (pura)
-            6 - Modo de assinatura digital e encriptacao (combinados)
-            7 - Modo de decritacao e verificacao de assinatura(combinados)
-            0 - Sair do programa
-            ----------------------
-            """)
-
-            print("Digite a opcao desejada:") #escolha do menu principal
-            escolha=int(input()) #escolha digitada pelo usuario
-            menuprincipal(escolha) #funcao menuprincipal
-
-
-        elif escolha == 0:
+        else:
+            print("Escolha invalida, tente novamente!")
             return 1
 
 
 
+
     elif escolha == 2:
-        print("2 - Modo de encriptacao escolhido")
+        print("Opcao 2 - Modo de encriptacao escolhido.")
     elif escolha == 3:
-        print("3 - Modo de decriptacao escolhido")
+        print("Opcao 3 - Modo de decriptacao escolhido.")
     elif escolha == 4:
-        print("4- Modo de assinatura digital(pura) escolhido")
+        print("Opcao 4- Modo de assinatura digital(pura) escolhido.")
     elif escolha == 5:
-        print("5 - Modo de verificacao de assinatura(pura) escolhido")
+        print("Opcao 5 - Modo de verificacao de assinatura(pura) escolhido.")
     elif escolha == 6:
-        print("6 - Modo de assinatura digital e encriptacao(combinados) escolhido")
+        print("Opcao 6 - Modo de assinatura digital e encriptacao(combinados) escolhido.")
     elif escolha == 7:
-        print("7 - Modo de decritacao e verificacao de assinatura(combinados) escolhido")
-    elif escolha == 0:
-        return 1
+        print("Opcao 7 - Modo de decritacao e verificacao de assinatura(combinados) escolhido.")
     else:
-        print("Escolha invalida, tente novamente")
+        print("Escolha invalida, tente novamente!")
 
 
 #fim ddo menu principal
@@ -276,14 +258,13 @@ def menuprincipal(escolha):
 print("""
 ----Menu principal----
 
-1 - Modo de geracao de chaves
-2 - Modo de encriptacao
-3 - Modo de decriptcao
-4 - Modo de assinatura digital (pura)
-5 - Modo de verificacao de assinatura (pura)
-6 - Modo de assinatura digital e encriptacao (combinados)
-7 - Modo de decritacao e verificacao de assinatura(combinados)
-0 - Sair do programa
+Opcao 1 - Modo de geracao de chaves
+Opcao 2 - Modo de encriptacao
+Opcao 3 - Modo de decriptcao
+Opcao 4 - Modo de assinatura digital (pura)
+Opcao 5 - Modo de verificacao de assinatura (pura)
+Opcao 6 - Modo de assinatura digital e encriptacao (combinados)
+Opcao 7 - Modo de decritacao e verificacao de assinatura (combinados)
 ----------------------
 """)
 

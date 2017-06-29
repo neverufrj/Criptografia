@@ -4,10 +4,7 @@ Disciplina: Numeros inteiros e criptografia
 Professor: Menasche
 Nome: David Melo da Silva
 DRE: 117079728
-VeRSAgeradoro:0.2 (ATUALIZADA EM :27/06/2017)
-
-26/06/2017 - menuprincipal criado
-26/06/2017 - Modo de geracao de chaves
+VeRSAgeradoro:0.3 (ATUALIZADA EM :29/06/2017)
 
 O programa elaborado para este trabalho devera ser capaz de encriptar e/ou assinar digitalmente
 qualquer arquivo salvo no computador.
@@ -160,59 +157,61 @@ def phiden(n):
 
 #funcoes para salvar arquivos
 def salvarchavesgamal(p,g,c,a):
-    escolha = ''
-    while(escolha != "e" and escolha != "s"):
-        print("Digite 's' para salvar as chaves em arquivo ou 'e' para exibir as chaves no terminal.")
-        escolha = raw_input()
-        if(escolha == "s"):
-            print("Voce escolheu salvar as chaves geradas em arquivos. Os arquivos possuem os seguintes nomes : ChavePublica e ChavePrivada.")
-            print("")
-            chavespublicas=open("ChavePublica", 'w')
-            chavespublicas.write(p + "\n")
-            chavespublicas.write(g + "\n")
-            chavespublicas.write(c + "\n")
-            chavesprivadas=open("ChavePrivada", 'w')
-            chavesprivadas.write(a + "\n")
-            chavesprivadas.write(p + "\n")
-            chavesprivadas.write(g + "\n")
-            print("Os arquivos ChavePublica e ChavePrivada foram salvos com sucesso!\n")
-            sys.exit(0)
-        elif(escolha == "e"):
-            print("Voce escolheu 'exibir' as chaves no terminal.")
-            print("")
-            print("Chave publica:")
-            print(p,g,c)
-            print("Chave privada:")
-            print(a)
-        else:
-            print("Opcao invalida, tente novamente!"+"\n")
-            print("")
+	escolha = ''
+	while(escolha != "e" and escolha != "s"):
+		print("Digite 's' para salvar as chaves em arquivo ou 'e' para exibir as chaves no terminal.")
+		escolha = raw_input()
+		if(escolha == "s"):
+			print("Voce escolheu salvar as chaves geradas em arquivos. Os arquivos possuem os seguintes nomes : ChavePublica e ChavePrivada.")
+			print("")
+			chavespublicas=open("ChavePublica", 'w')
+			chavespublicas.write(p + "\n")
+			chavespublicas.write(g + "\n")
+			chavespublicas.write(c + "\n")
+			chavesprivadas=open("ChavePrivada", 'w')
+			chavesprivadas.write(a + "\n")
+			chavesprivadas.write(p + "\n")
+			chavesprivadas.write(g + "\n")
+			print("Os arquivos ChavePublica e ChavePrivada foram salvos com sucesso!\n")
+			sys.exit(0)
+		elif(escolha == "e"):
+			print("Voce escolheu 'exibir' as chaves no terminal.")
+			print("")
+			print("Chave publica:")
+			print(p,g,c)
+			print("Chave privada:")
+			print(a)
+			sys.exit(0)
+		else:
+			print("Opcao invalida, tente novamente!"+"\n")
+			print("")
 def salvarchaves(num,e,d):
 	escolha = ''
 	while(escolha != "e" and escolha != "s"):
 		print("Digite 's' para salvar as chaves em arquivo ou 'e' para exibir as chaves no terminal.")
 		escolha = raw_input()
-        if(escolha == "s"):
-            print("Voce escolheu salvar as chaves geradas em arquivos. Os arquivos possuem os seguintes nomes : ChavePublica e ChavePrivada.")
-            print("")
-            chavespublicasF = open("ChavePublica", 'w')
-            chavespublicasF.write(num + "\n")
-            chavespublicasF.write(e + "\n")
-            chavesprivadasF = open("ChavePrivada", 'w')
-            chavesprivadasF.write(num + "\n")
-            chavesprivadasF.write(d + "\n")
-            print("Os arquivos ChavePublica e ChavePrivada foram salvos com sucesso!\n")
-            sys.exit(0)
-        elif(escolha == "e"):
-            print("Voce escolheu 'exibir' as chaves no terminal.")
-            print("")
-            print("Chave publica:")
-            print(num,e)
-            print("Chave privada:")
-            print(num,d)
-        else:
-            print("Opcao invalida, tente novamente!"+"\n")
-            print("")
+		if(escolha == "s"):
+			print("Voce escolheu salvar as chaves geradas em arquivos. Os arquivos possuem os seguintes nomes : ChavePublica e ChavePrivada.")
+			print("")
+			chavespublicasF = open("ChavePublica", 'w')
+			chavespublicasF.write(num + "\n")
+			chavespublicasF.write(e + "\n")
+			chavesprivadasF = open("ChavePrivada", 'w')
+			chavesprivadasF.write(num + "\n")
+			chavesprivadasF.write(d + "\n")
+			print("Os arquivos ChavePublica e ChavePrivada foram salvos com sucesso!\n")
+			sys.exit(0)
+		elif(escolha == "e"):
+			print("Voce escolheu 'exibir' as chaves no terminal.")
+			print("")
+			print("Chave publica:")
+			print(num,e)
+			print("Chave privada:")
+			print(num,d)
+			sys.exit(0)
+		else:
+			print("Opcao invalida, tente novamente!"+"\n")
+			print("")
 
 
  # Funcao que calcula as chaves publicas e privadas do RSA
